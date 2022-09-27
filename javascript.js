@@ -12,8 +12,8 @@ let box = document.getElementById("box");
 
 
 function createGrid() {
-    let numOfCols = +prompt("How many Columns?");
-    let numOfRows = +prompt("How many Rows?");  
+    let numOfCols = 4// +prompt("How many Columns?");
+    let numOfRows = 4//+prompt("How many Rows?");  
     //Creates number of rows
     for (let r = 1; r <= numOfRows; r++) {
         let row = document.createElement("div");
@@ -29,7 +29,6 @@ function createGrid() {
                 box.addEventListener('mouseout', (e) => {
                     // Allow color fade in/out 
                     //box.className = "box notHovering";
-                    console.log(box.classList);
                 })
             })
             
