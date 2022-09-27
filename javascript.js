@@ -1,4 +1,8 @@
 
+// Runs selected function on page load
+window.onload = function() {
+    createGrid();
+};
 
 // Determine grid width and height
 let numOfCols = 16;
@@ -21,7 +25,6 @@ function createGrid() {
     }
 }
 
-// Runs selected function on page load
-window.onload = function() {
-    createGrid();
-};
+document.getElementsByClassName("box").addEventListener("mouseover",function() {
+    document.getElementsByClassName("box").style.backgroundColor = "green";
+});
