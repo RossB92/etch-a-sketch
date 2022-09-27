@@ -1,8 +1,7 @@
 .box {
     background: #9E9E9E;
     border: black 1px solid;
-    width: 100%;
-    /* height: 180px; */
+    height: 100px;
     margin: 0 auto;
     margin-top: 0;
     cursor: pointer;
@@ -11,23 +10,16 @@
 
 }
 
-/* .box:hover {
-    background-color: green;
-
-} */
-
 .row {
-    display: block;
     background-color: black;
-    border: black 1px solid;
-    width:100%;
-    height: 100%;
-    display: flex;
+    display: inline-block;
 }
 
 .hovering {
-    background-color: blue;
+    /* background-color: rgb(math.random(), green, blue); */
 }
 .notHovering{
     transition: 2s ease-out
 }
+
+/* @randomColor: `Math.round(Math.random() * 100)`; */

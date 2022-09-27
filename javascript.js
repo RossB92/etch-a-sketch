@@ -1,17 +1,19 @@
 
 // Runs selected function on page load
-window.onload = function() {
-    createGrid();
-};
+// window.onload = function() {
+//     createGrid();
+// };
 
 // Determine grid width and height
-let numOfCols = 16;
-let numOfRows = 16;
+
 
 let container = document.getElementById("container");
 let box = document.getElementById("box");
 
+
 function createGrid() {
+    let numOfCols = +prompt("How many Columns?");
+    let numOfRows = +prompt("How many Rows?");  
     //Creates number of rows
     for (let r = 1; r <= numOfRows; r++) {
         let row = document.createElement("div");
@@ -21,10 +23,12 @@ function createGrid() {
             let box = document.createElement("div");
             box.className = "box";
             box.addEventListener('mouseenter', (e) => {
-                box.className = "box hovering";
-                console.log(box.classList);
+                // Allows color fade in/out 
+                //box.className = "box hovering";
+                box.style.backgroundColor= randomColor();
                 box.addEventListener('mouseout', (e) => {
-                    box.className = "box notHovering";
+                    // Allow color fade in/out 
+                    //box.className = "box notHovering";
                     console.log(box.classList);
                 })
             })
@@ -39,4 +43,9 @@ function createGrid() {
         
         container.appendChild(row);
     }
+}
+
+function randomColor() {
+    let o = Math.round, r = Math.random, s = 255;
+    return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
 }
