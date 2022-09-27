@@ -9,6 +9,7 @@ let numOfCols = 16;
 let numOfRows = 16;
 
 let container = document.getElementById("container");
+let box = document.getElementById("box");
 
 function createGrid() {
     //Creates number of rows
@@ -19,12 +20,23 @@ function createGrid() {
         for (let c = 1; c <= numOfCols; c++) {
             let box = document.createElement("div");
             box.className = "box";
+            box.addEventListener('mouseenter', (e) => {
+                box.className = "box hovering";
+                console.log(box.classList);
+                box.addEventListener('mouseout', (e) => {
+                    box.className = "box notHovering";
+                    console.log(box.classList);
+                })
+            })
+            
             row.appendChild(box);
+            // Adds color on hover
+            
+
+
+            
         }
+        
         container.appendChild(row);
     }
 }
-
-document.getElementsByClassName("box").addEventListener("mouseover",function() {
-    document.getElementsByClassName("box").style.backgroundColor = "green";
-});

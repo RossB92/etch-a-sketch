@@ -8,11 +8,13 @@
     cursor: pointer;
     display: flex;
     aspect-ratio: 1/1;
+
 }
 
-.box:hover {
+/* .box:hover {
     background-color: green;
-}
+
+} */
 
 .row {
     display: block;
@@ -23,3 +25,9 @@
     display: flex;
 }
 
+.hovering {
+    background-color: blue;
+}
+.notHovering{
+    transition: 2s ease-out
+}
