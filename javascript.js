@@ -9,11 +9,19 @@
 
 let container = document.getElementById("container");
 let box = document.getElementById("box");
-
-
+let slider= document.getElementById('myRange');
+let output = document.getElementById('output');
+output.innerHTML = slider.value;
+let slideValue = 32;
+slider.oninput = function() {
+    output.innerHTML = this.value;
+    let slideValue = +output.innerHTML;
+    console.log(slideValue);
+    return slideValue;
+}
 function createGrid() {
-    let numOfCols = 4// +prompt("How many Columns?");
-    let numOfRows = 4//+prompt("How many Rows?");  
+    let numOfCols = slider.value/2 // +prompt("How many Columns?");
+    let numOfRows = slider.value/2//+prompt("How many Rows?");  
     //Creates number of rows
     for (let r = 1; r <= numOfRows; r++) {
         let row = document.createElement("div");
