@@ -1,6 +1,5 @@
-
+let grid = document.getElementById('grid');
 let container = document.getElementById("container");
-let subContainer = document.getElementById("sub-container");
 
 let box = document.getElementById("box");
 let slider= document.getElementById('myRange');
@@ -19,11 +18,9 @@ function createGrid() {
 
     if(gridMade===1) {
         gridMade = 0;
-        subContainer.remove();
-        subContainer = document.createElement('div');
-        subContainer.className = 'sub-container';
-        subContainer.id = 'sub-container';
-        container.appendChild(subContainer);
+        clearGrid();
+        grid.appendChild(container);
+        createBoxes();
     } else {
         gridMade = 1;
         let slideValue = +output.innerHTML;
@@ -50,7 +47,7 @@ function createGrid() {
                 row.appendChild(box);
                 // Adds color on hover
             }
-            subContainer.appendChild(row);
+            container.appendChild(row);
         } return gridMade;
     }
 }
@@ -58,4 +55,15 @@ function createGrid() {
 function randomColor() {
     let o = Math.round, r = Math.random, s = 255;
     return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
+}
+
+function clearGrid() {
+    container.remove();
+    container = document.createElement('div')
+    container.className = 'container'
+    container.id = 'container';
+}
+
+function createBoxes() {
+    
 }
