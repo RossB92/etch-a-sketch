@@ -1,39 +1,32 @@
 
-// Runs selected function on page load
-// window.onload = function() {
-//     createGrid();
-// };
-
-// Determine grid width and height
-
-
 let container = document.getElementById("container");
+let subContainer = document.getElementById("sub-container");
+
 let box = document.getElementById("box");
 let slider= document.getElementById('myRange');
 let output = document.getElementById('output');
 
-var values = [4,9,16,25,36,49,64];
-// slider.oninput = function(){
-//     output.innerHTML = values[this.value];
-//     let secVal = +output.innerHTML;
-//     console.log(typeof(secVal))
-//     return secVal
-// };
+let deletedBox = document.getElementsByClassName('box');
 
-// output.innerHTML = slider.value;
+let gridMade;
+
+var values = [4,9,16,25,36,49,64];
 slider.oninput = function() {
     output.innerHTML = values[this.value];
 }
 slider.oninput(25);
 function createGrid() {
-    if(document.getElementById('box')) {
-        let deleted = document.getElementById('box');
-        deleted.remove();
+
+    if(gridMade===1) {
+        gridMade = 0;
+        subContainer.remove();
+        subContainer = document.createElement('div');
+        subContainer.className = 'sub-container';
+        subContainer.id = 'sub-container';
+        container.appendChild(subContainer);
     } else {
+        gridMade = 1;
         let slideValue = +output.innerHTML;
-
-        console.log(slideValue)
-
         let numOfCols = Math.sqrt(slideValue); // +prompt("How many Columns?");
         let numOfRows = Math.sqrt(slideValue);//+prompt("How many Rows?");  
         //Creates number of rows
@@ -56,14 +49,9 @@ function createGrid() {
                 
                 row.appendChild(box);
                 // Adds color on hover
-                
-
-
-                
             }
-            
-            container.appendChild(row);
-        }
+            subContainer.appendChild(row);
+        } return gridMade;
     }
 }
 

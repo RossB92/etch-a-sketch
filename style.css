@@ -18,6 +18,10 @@ body {
     display: flex;
     flex: 1;
 }
+#sub-container{
+    display: flex;
+    flex: 1;
+}
 .row {
     background-color: black;
     width: 100%;
