@@ -4,7 +4,12 @@ body {
 	align-items: center;
 	flex: 1;
 }
-
+button{
+	margin: 5px
+}
+#colorLabel {
+	margin: 5px;
+}
 .grid {
 	width: 300px;
 	height: 300px;

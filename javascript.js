@@ -2,6 +2,7 @@ let grid = document.getElementById("grid");
 let container = document.getElementById("container");
 let slider = document.getElementById("myRange");
 let output = document.getElementById("output");
+let randomColorButton = document.getElementById("random");
 
 let gridMade;
 var randToggle = 0;
@@ -22,27 +23,34 @@ function createGrid() {
 }
 
 function randomColor() {
-  let o = Math.round,
-    r = Math.random,
-    s = 255;
-  let randColor =
-    "rgba(" +
-    o(r() * s) +
-    "," +
-    o(r() * s) +
-    "," +
-    o(r() * s) +
-    "," +
-    r().toFixed(1) +
-    ")";
+  var x = Math.floor(Math.random() * 256);
+  var y = Math.floor(Math.random() * 256);
+  var z = Math.floor(Math.random() * 256);
+  var randColor = "rgb(" + x + "," + y + "," + z + ")";
   return randColor;
+  //   let o = Math.round,
+  //     r = Math.random,
+  //     s = 255;
+  //   let randColor =
+  //     "rgba(" +
+  //     o(r() * s) +
+  //     "," +
+  //     o(r() * s) +
+  //     "," +
+  //     o(r() * s) +
+  //     "," +
+  //     r().toFixed(1) +
+  //     ")";
+  //   return randColor;
 }
 
 function randomToggle() {
   if (randToggle === 0) {
     randToggle = 1;
+    randomColorButton.style.background = "rgb(51,255,119)";
   } else {
     randToggle = 0;
+    randomColorButton.style.background = "rgb(230,230,230)";
   }
   return randToggle;
 }
@@ -75,9 +83,6 @@ function createBoxes() {
         // //box.className = "box hovering";
         // let color = document.getElementById("color");
         let colorPicked = color.value;
-
-        console.log("picked " + colorPicked);
-        console.log("random " + randToggle);
         if (randToggle === 0) {
           box.style.backgroundColor = colorPicked;
         } else if (randToggle === 1) {
