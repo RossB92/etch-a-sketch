@@ -2,10 +2,9 @@ let grid = document.getElementById("grid");
 let container = document.getElementById("container");
 let slider = document.getElementById("myRange");
 let output = document.getElementById("output");
-let randomToggle = 0;
-let colorPicked = toggleRandom();
 
 let gridMade;
+var randToggle = 0;
 
 let values = [4, 9, 16, 25, 36, 49, 64, 81, 100];
 slider.oninput = function () {
@@ -26,7 +25,7 @@ function randomColor() {
   let o = Math.round,
     r = Math.random,
     s = 255;
-  return (
+  let randColor =
     "rgba(" +
     o(r() * s) +
     "," +
@@ -35,19 +34,17 @@ function randomColor() {
     o(r() * s) +
     "," +
     r().toFixed(1) +
-    ")"
-  );
+    ")";
+  return randColor;
 }
-function toggleRandom() {
-  if (randomToggle === 0) {
-    randomToggle = 1;
-    colorPicked = randomColor();
-  } else if (randomToggle === 1) {
-    randomToggle = 0;
-    let color = document.getElementById("color");
-    colorPicked = color.value;
+
+function randomToggle() {
+  if (randToggle === 0) {
+    randToggle = 1;
+  } else {
+    randToggle = 0;
   }
-  return colorPicked;
+  return randToggle;
 }
 
 function clearGrid() {
@@ -61,6 +58,7 @@ function clearGrid() {
 
 function createBoxes() {
   gridMade = 1;
+
   let slideValue = +output.value;
   let numOfCols = Math.sqrt(slideValue); // +prompt("How many Columns?");
   let numOfRows = Math.sqrt(slideValue); //+prompt("How many Rows?");
@@ -76,9 +74,15 @@ function createBoxes() {
         // Allows color fade in/out
         // //box.className = "box hovering";
         // let color = document.getElementById("color");
-        // let colorPicked = color.value;
-        console.log(colorPicked);
-        box.style.backgroundColor = colorPicked; //randomColor();
+        let colorPicked = color.value;
+
+        console.log("picked " + colorPicked);
+        console.log("random " + randToggle);
+        if (randToggle === 0) {
+          box.style.backgroundColor = colorPicked;
+        } else if (randToggle === 1) {
+          box.style.backgroundColor = randomColor();
+        }
         box.addEventListener("mouseout", (e) => {
           // Allow color fade in/out
           //box.className = "box notHovering";
