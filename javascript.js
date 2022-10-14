@@ -3,11 +3,12 @@ let container = document.getElementById("container");
 let slider = document.getElementById("myRange");
 let output = document.getElementById("output");
 
+
 let gridMade;
 
 let values = [ 4, 9, 16, 25, 36, 49, 64, 81, 100 ];
 slider.oninput = function() {
-	output.innerHTML = "Number of " + values[this.value] + " boxes";
+	output.innerHTML = "Grid of " + values[this.value] + " boxes";
 	output.value = values[this.value];
 };
 slider.oninput(25);
@@ -52,7 +53,12 @@ function createBoxes() {
 			box.addEventListener("mouseenter", (e) => {
 				// Allows color fade in/out
 				//box.className = "box hovering";
-				box.style.backgroundColor = randomColor();
+				let color = document.getElementById("color");
+
+				let colorPicked = color.value;
+				console.log(color);
+				console.log(colorPicked);
+				box.style.backgroundColor = colorPicked;//randomColor();
 				box.addEventListener("mouseout", (e) => {
 					// Allow color fade in/out
 					//box.className = "box notHovering";
